@@ -11,7 +11,11 @@ import UIKit
 
 class StatisticsController: UIViewController {
     
+    var nights = [Night]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        nights = CoreDataHelper.retrieveNights()
     }
 }

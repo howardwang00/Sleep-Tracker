@@ -29,6 +29,12 @@ class ViewController: UIViewController {
         UIButton.animate(withDuration: 2, animations: {
             self.sleepButton.backgroundColor = UIColor(red: 51, green: 51, blue: 51, alpha: 1)
         }, completion: nil)
+        
+        
+        sleeping = !sleeping
+        if sleeping {
+            let night = CoreDataHelper.returnNight()
+        }
     }
 
 
