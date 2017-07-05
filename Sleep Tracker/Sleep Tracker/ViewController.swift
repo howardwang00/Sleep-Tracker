@@ -26,9 +26,13 @@ class ViewController: UIViewController {
         //Get sleeping from CoreData
         
         if (sleeping == false) {
-            self.sleepButton.backgroundColor = UIColor(hex: "5998C5")
-            self.view.backgroundColor = UIColor(hex: "2E5266")
+            self.sleepButton.backgroundColor = UIColor(hex: "97F9F9")
+            self.view.backgroundColor = UIColor(hex: "A4DEF9")
             self.sleepButton.setTitleColor(UIColor(hex: "000000"), for: UIControlState.normal)
+            
+            self.firstZ.textColor = UIColor(hex: "A4DEF9")
+            self.secondZ.textColor = UIColor(hex: "A4DEF9")
+            self.thirdZ.textColor = UIColor(hex: "A4DEF9")
         } else {
             self.sleepButton.backgroundColor = UIColor(hex: "333333")
             self.view.backgroundColor = UIColor(hex: "191919")
@@ -55,7 +59,7 @@ class ViewController: UIViewController {
                 self.sleepButton.backgroundColor = UIColor(hex: "333333")
                 self.view.backgroundColor = UIColor(hex: "191919")
                 self.sleepButton.setTitleColor(UIColor(hex: "FF8000"), for: UIControlState.normal)
-                self.sleepButton.setTitle("Wake Up:", for: UIControlState.normal)
+                self.sleepButton.setTitle("Wake Up", for: UIControlState.normal)
                 
                 UIView.transition(with: self.firstZ, duration: 0.3, options: .transitionCrossDissolve, animations: { self.firstZ.textColor = UIColor.white }, completion: nil)
                 UIView.transition(with: self.secondZ, duration: 0.3, options: .transitionCrossDissolve, animations: { self.secondZ.textColor = UIColor.white }, completion: nil)
@@ -74,14 +78,14 @@ class ViewController: UIViewController {
             //animate to light
             UIButton.animate(withDuration: 2, animations:
                 {
-                self.sleepButton.backgroundColor = UIColor(hex: "5998C5")
-                self.view.backgroundColor = UIColor(hex: "2E5266")
+                self.sleepButton.backgroundColor = UIColor(hex: "97F9F9")
+                self.view.backgroundColor = UIColor(hex: "A4DEF9")
                 self.sleepButton.setTitleColor(UIColor(hex: "000000"), for: UIControlState.normal)
                 self.sleepButton.setTitle("Go To Sleep", for: UIControlState.normal)
                     
-                    UIView.transition(with: self.firstZ, duration: 0.3, options: .transitionCrossDissolve, animations: { self.firstZ.textColor = UIColor(hex: "2E5266") }, completion: nil)
-                    UIView.transition(with: self.secondZ, duration: 0.3, options: .transitionCrossDissolve, animations: { self.secondZ.textColor = UIColor(hex: "2E5266") }, completion: nil)
-                    UIView.transition(with: self.thirdZ, duration: 0.3, options: .transitionCrossDissolve, animations: { self.thirdZ.textColor = UIColor(hex: "2E5266") }, completion: nil)
+                    UIView.transition(with: self.firstZ, duration: 0.3, options: .transitionCrossDissolve, animations: { self.firstZ.textColor = UIColor(hex: "A4DEF9") }, completion: nil)
+                    UIView.transition(with: self.secondZ, duration: 0.3, options: .transitionCrossDissolve, animations: { self.secondZ.textColor = UIColor(hex: "A4DEF9") }, completion: nil)
+                    UIView.transition(with: self.thirdZ, duration: 0.3, options: .transitionCrossDissolve, animations: { self.thirdZ.textColor = UIColor(hex: "A4DEF9") }, completion: nil)
             })
             firstZ.layer.removeAllAnimations()
             secondZ.layer.removeAllAnimations()

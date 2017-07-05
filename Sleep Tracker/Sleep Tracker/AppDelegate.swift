@@ -46,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //Core Data
     
     lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "MakeSchoolNotes")
+        let container = NSPersistentContainer(name: "SleepTracker")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
