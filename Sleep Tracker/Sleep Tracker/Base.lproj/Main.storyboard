@@ -23,26 +23,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8je-nZ-Ka6">
-                                <rect key="frame" x="50" y="313.5" width="275" height="40"/>
-                                <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="woZ-OU-1rt"/>
-                                </constraints>
+                                <rect key="frame" x="50" y="314" width="275" height="40"/>
+                                <color key="backgroundColor" red="0.34901960784313724" green="0.59607843137254901" blue="0.77254901960784317" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Go To Sleep">
-                                    <color key="titleColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="sleepButtonPressed:" destination="3A0-V0-Hv0" eventType="touchUpInside" id="d4D-f1-gvb"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.1803921568627451" green="0.32156862745098036" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="8je-nZ-Ka6" firstAttribute="centerY" secondItem="DpQ-fy-LYb" secondAttribute="centerY" id="ZKf-Fs-t9V"/>
-                            <constraint firstItem="8je-nZ-Ka6" firstAttribute="leading" secondItem="DpQ-fy-LYb" secondAttribute="leadingMargin" constant="34" id="aBs-Ob-3L3"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="8je-nZ-Ka6" secondAttribute="trailing" constant="34" id="cGS-Q3-Mpq"/>
-                            <constraint firstItem="y7u-CL-anC" firstAttribute="top" secondItem="8je-nZ-Ka6" secondAttribute="bottom" constant="264.5" id="mMd-v0-gh9"/>
-                            <constraint firstItem="8je-nZ-Ka6" firstAttribute="centerX" secondItem="DpQ-fy-LYb" secondAttribute="centerX" id="ndu-iC-2mN"/>
+                            <constraint firstItem="8je-nZ-Ka6" firstAttribute="leading" secondItem="DpQ-fy-LYb" secondAttribute="leadingMargin" constant="34" id="LB7-iG-vBY"/>
+                            <constraint firstItem="8je-nZ-Ka6" firstAttribute="centerY" secondItem="DpQ-fy-LYb" secondAttribute="centerY" id="MBu-OE-Q7n"/>
+                            <constraint firstItem="8je-nZ-Ka6" firstAttribute="centerX" secondItem="DpQ-fy-LYb" secondAttribute="centerX" id="jRc-vF-P5f"/>
+                            <constraint firstItem="y7u-CL-anC" firstAttribute="top" secondItem="8je-nZ-Ka6" secondAttribute="bottom" constant="264" id="uh7-YC-uyv"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="mcv-P8-ID8"/>
