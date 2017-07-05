@@ -32,6 +32,27 @@
                                     <action selector="sleepButtonPressed:" destination="3A0-V0-Hv0" eventType="touchUpInside" id="d4D-f1-gvb"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Z" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="10d-MR-a5L">
+                                <rect key="frame" x="90" y="529" width="86" height="81"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="72"/>
+                                <color key="textColor" red="0.1803921568627451" green="0.32156862745098036" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Z" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i9J-yk-0C9">
+                                <rect key="frame" x="177" y="491" width="63" height="63"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <color key="textColor" red="0.1803921568627451" green="0.32156862745098036" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Z" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CID-RD-Rq3">
+                                <rect key="frame" x="240" y="441" width="45" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" red="0.1803921568627451" green="0.32156862745098036" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.1803921568627451" green="0.32156862745098036" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -43,12 +64,15 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="mcv-P8-ID8"/>
                     <connections>
+                        <outlet property="firstZ" destination="10d-MR-a5L" id="zzC-jT-lW3"/>
+                        <outlet property="secondZ" destination="i9J-yk-0C9" id="FIR-N3-WTg"/>
                         <outlet property="sleepButton" destination="8je-nZ-Ka6" id="QCA-2j-W5Q"/>
+                        <outlet property="thirdZ" destination="CID-RD-Rq3" id="JLU-uT-i9f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J26-vP-K3M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1262" y="-101"/>
+            <point key="canvasLocation" x="1261.5999999999999" y="-101.19940029985008"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="jNy-Ox-nhc">

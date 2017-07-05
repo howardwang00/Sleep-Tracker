@@ -11,6 +11,9 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var sleepButton: UIButton!
+    @IBOutlet weak var firstZ: UILabel!
+    @IBOutlet weak var secondZ: UILabel!
+    @IBOutlet weak var thirdZ: UILabel!
     
     var sleeping: Bool = false
     
@@ -18,7 +21,22 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         sleepButton.layer.cornerRadius = 12
+        if (sleeping == false) {
+            self.sleepButton.backgroundColor = UIColor(hex: "5998C5")
+            self.view.backgroundColor = UIColor(hex: "2E5266")
+            self.sleepButton.setTitleColor(UIColor(hex: "000000"), for: UIControlState.normal)
+        } else {
+            self.sleepButton.backgroundColor = UIColor(hex: "333333")
+            self.view.backgroundColor = UIColor(hex: "191919")
+            self.sleepButton.setTitleColor(UIColor(hex: "FF8000"), for: UIControlState.normal)
+            self.sleepButton.setTitle("Wake Up:", for: UIControlState.normal)
+
+            self.firstZ.textColor = UIColor.white
+            self.secondZ.textColor = UIColor.white
+            self.thirdZ.textColor = UIColor.white
+        }
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -26,9 +44,43 @@ class ViewController: UIViewController {
     }
     
     @IBAction func sleepButtonPressed(_ sender: UIButton) {
-        UIButton.animate(withDuration: 2, animations: {
-            self.sleepButton.backgroundColor = UIColor(red: 51, green: 51, blue: 51, alpha: 1)
-        }, completion: nil)
+        sleeping = !sleeping
+        if (sleeping == true) {
+            //animate to dark
+            UIButton.animate(withDuration: 2, animations: {
+                self.sleepButton.backgroundColor = UIColor(hex: "333333")
+                self.view.backgroundColor = UIColor(hex: "191919")
+                self.sleepButton.setTitleColor(UIColor(hex: "FF8000"), for: UIControlState.normal)
+                self.sleepButton.setTitle("Wake Up:", for: UIControlState.normal)
+                
+                UIView.transition(with: self.firstZ, duration: 0.3, options: .transitionCrossDissolve, animations: { self.firstZ.textColor = UIColor.white }, completion: nil)
+                UIView.transition(with: self.secondZ, duration: 0.3, options: .transitionCrossDissolve, animations: { self.secondZ.textColor = UIColor.white }, completion: nil)
+                UIView.transition(with: self.thirdZ, duration: 0.3, options: .transitionCrossDissolve, animations: { self.thirdZ.textColor = UIColor.white }, completion: nil)
+            
+            }) { _ in
+                UIButton.animate(withDuration: 2, delay: 0.25, options: [.autoreverse, .repeat],animations: {
+                    self.firstZ.frame.origin.y -= 20
+                    self.secondZ.frame.origin.y += 15
+                    self.thirdZ.frame.origin.y += 10
+                })
+            }
+        } else {
+            //animate to light
+            UIButton.animate(withDuration: 2, animations:
+                {
+                self.sleepButton.backgroundColor = UIColor(hex: "5998C5")
+                self.view.backgroundColor = UIColor(hex: "2E5266")
+                self.sleepButton.setTitleColor(UIColor(hex: "000000"), for: UIControlState.normal)
+                self.sleepButton.setTitle("Go To Sleep", for: UIControlState.normal)
+                    
+                    UIView.transition(with: self.firstZ, duration: 0.3, options: .transitionCrossDissolve, animations: { self.firstZ.textColor = UIColor(hex: "2E5266") }, completion: nil)
+                    UIView.transition(with: self.secondZ, duration: 0.3, options: .transitionCrossDissolve, animations: { self.secondZ.textColor = UIColor(hex: "2E5266") }, completion: nil)
+                    UIView.transition(with: self.thirdZ, duration: 0.3, options: .transitionCrossDissolve, animations: { self.thirdZ.textColor = UIColor(hex: "2E5266") }, completion: nil)
+            })
+            firstZ.layer.removeAllAnimations()
+            secondZ.layer.removeAllAnimations()
+            thirdZ.layer.removeAllAnimations()
+        }
     }
 
 
