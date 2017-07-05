@@ -1,63 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="B4R-9S-gfw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Llz-BM-GHq">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Sleep-->
+        <scene sceneID="oJe-zn-lDT">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Sleep_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Sleep" id="3A0-V0-Hv0" customClass="ViewController" customModule="Sleep_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="Oq2-Ga-ovb"/>
+                        <viewControllerLayoutGuide type="bottom" id="y7u-CL-anC"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="DpQ-fy-LYb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LgE-KN-gKj">
-                                <rect key="frame" x="73" y="315" width="228" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8je-nZ-Ka6">
+                                <rect key="frame" x="50" y="313.5" width="275" height="40"/>
                                 <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="woZ-OU-1rt"/>
+                                </constraints>
                                 <state key="normal" title="Go To Sleep">
                                     <color key="titleColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="sleepButtonPressed:" destination="3A0-V0-Hv0" eventType="touchUpInside" id="d4D-f1-gvb"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="8je-nZ-Ka6" firstAttribute="centerY" secondItem="DpQ-fy-LYb" secondAttribute="centerY" id="ZKf-Fs-t9V"/>
+                            <constraint firstItem="8je-nZ-Ka6" firstAttribute="leading" secondItem="DpQ-fy-LYb" secondAttribute="leadingMargin" constant="34" id="aBs-Ob-3L3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8je-nZ-Ka6" secondAttribute="trailing" constant="34" id="cGS-Q3-Mpq"/>
+                            <constraint firstItem="y7u-CL-anC" firstAttribute="top" secondItem="8je-nZ-Ka6" secondAttribute="bottom" constant="264.5" id="mMd-v0-gh9"/>
+                            <constraint firstItem="8je-nZ-Ka6" firstAttribute="centerX" secondItem="DpQ-fy-LYb" secondAttribute="centerX" id="ndu-iC-2mN"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="xyb-0Q-UlP"/>
+                    <tabBarItem key="tabBarItem" title="Item 1" id="mcv-P8-ID8"/>
                     <connections>
-                        <outlet property="sleepButton" destination="LgE-KN-gKj" id="0Zm-uF-Ca4"/>
+                        <outlet property="sleepButton" destination="8je-nZ-Ka6" id="QCA-2j-W5Q"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J26-vP-K3M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="137.18140929535232"/>
+            <point key="canvasLocation" x="1262" y="-101"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="SUX-lq-xP7">
+        <!--Tab Bar Controller-->
+        <scene sceneID="jNy-Ox-nhc">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="B4R-9S-gfw" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2YY-F7-MWW">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                <tabBarController id="Llz-BM-GHq" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Gfp-Xf-ans">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="czE-Y3-Y89"/>
+                        <segue destination="3A0-V0-Hv0" kind="relationship" relationship="viewControllers" id="kui-j2-WFk"/>
+                        <segue destination="f7c-vA-DiX" kind="relationship" relationship="viewControllers" id="LZI-k7-UGM"/>
                     </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Pr6-oZ-ANZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mdi-7x-pz3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="137.18140929535232"/>
+            <point key="canvasLocation" x="412" y="-101"/>
+        </scene>
+        <!--Statistics-->
+        <scene sceneID="wH5-DE-8uI">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Statistics" id="f7c-vA-DiX" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="GVV-bg-aMq"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uxr-Sp-XsU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="701" y="389"/>
         </scene>
     </scenes>
 </document>

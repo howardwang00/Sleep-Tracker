@@ -15,12 +15,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        sleepButton.layer.cornerRadius = 50
+        sleepButton.layer.cornerRadius = 12
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func sleepButtonPressed(_ sender: UIButton) {
+        
     }
 
 
