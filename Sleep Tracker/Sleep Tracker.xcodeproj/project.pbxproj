@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		60BE0BFB1F0E95B500E98FA7 /* Night.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BE0BFA1F0E95B500E98FA7 /* Night.swift */; };
 		60C403881F0D9144006826E6 /* Statistics.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60C403871F0D9144006826E6 /* Statistics.storyboard */; };
 		60C4038C1F0D9267006826E6 /* StatisticsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C4038B1F0D9267006826E6 /* StatisticsController.swift */; };
 		60C4038E1F0D9CD2006826E6 /* ColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C4038D1F0D9CD2006826E6 /* ColorHelper.swift */; };
@@ -24,7 +23,6 @@
 /* Begin PBXFileReference section */
 		095D131923449E34B2D5CFA4 /* Pods_Sleep_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sleep_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F1A3D265D635481A4318324 /* Pods-Sleep Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sleep Tracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sleep Tracker/Pods-Sleep Tracker.debug.xcconfig"; sourceTree = "<group>"; };
-		60BE0BFA1F0E95B500E98FA7 /* Night.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Night.swift; sourceTree = "<group>"; };
 		60C403871F0D9144006826E6 /* Statistics.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Statistics.storyboard; path = ../../Statistics.storyboard; sourceTree = "<group>"; };
 		60C4038B1F0D9267006826E6 /* StatisticsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsController.swift; sourceTree = "<group>"; };
 		60C4038D1F0D9CD2006826E6 /* ColorHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorHelper.swift; sourceTree = "<group>"; };
@@ -67,14 +65,6 @@
 				095D131923449E34B2D5CFA4 /* Pods_Sleep_Tracker.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		60BE0BFD1F0E95F800E98FA7 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				60BE0BFA1F0E95B500E98FA7 /* Night.swift */,
-			);
-			name = Models;
 			sourceTree = "<group>";
 		};
 		60C403891F0D9248006826E6 /* Storyboards */ = {
@@ -129,7 +119,6 @@
 				60C4038A1F0D9253006826E6 /* Controllers */,
 				60C403891F0D9248006826E6 /* Storyboards */,
 				89E8FE1C1F0D6DD50027BAB3 /* Assets.xcassets */,
-				60BE0BFD1F0E95F800E98FA7 /* Models */,
 				89E8FE1E1F0D6DD50027BAB3 /* LaunchScreen.storyboard */,
 				89E8FE211F0D6DD50027BAB3 /* Info.plist */,
 				891EED7F1F0D841F00338FEA /* SleepTracker.xcdatamodeld */,
@@ -267,7 +256,6 @@
 				89E8FE181F0D6DD50027BAB3 /* ViewController.swift in Sources */,
 				891EED811F0D841F00338FEA /* SleepTracker.xcdatamodeld in Sources */,
 				89E8FE161F0D6DD50027BAB3 /* AppDelegate.swift in Sources */,
-				60BE0BFB1F0E95B500E98FA7 /* Night.swift in Sources */,
 				60C4038C1F0D9267006826E6 /* StatisticsController.swift in Sources */,
 				60C4038E1F0D9CD2006826E6 /* ColorHelper.swift in Sources */,
 			);
