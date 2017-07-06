@@ -29,7 +29,7 @@ class StatisticsController: UIViewController {
     }
     func setChart(values: [Double]) {
         //To be changed.
-        guard values.count > 1 else { return }
+        guard values.count > 0 else { return }
         let myRange = Array(1...values.count)
         
         var dataEntries: [BarChartDataEntry] = []
