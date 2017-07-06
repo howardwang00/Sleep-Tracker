@@ -17,6 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        //just in case
+        if !UserDefaults.standard.bool(forKey: Constants.UserDefaults.sleeping) {
+            UserDefaults.standard.set(false, forKey: Constants.UserDefaults.sleeping)
+        }
+        
+        
         return true
     }
 
