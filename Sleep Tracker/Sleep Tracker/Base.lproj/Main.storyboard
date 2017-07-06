@@ -95,13 +95,14 @@
                                     <constraint firstAttribute="width" secondItem="jBQ-Lb-wsa" secondAttribute="height" multiplier="1:1" id="AQU-PG-Pvv"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cloud 1" translatesAutoresizingMaskIntoConstraints="NO" id="yRj-7X-TYk">
-                                <rect key="frame" x="94" y="181" width="190" height="107"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloud 1" translatesAutoresizingMaskIntoConstraints="NO" id="yRj-7X-TYk">
+                                <rect key="frame" x="54" y="210" width="157" height="57"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cloud 1" translatesAutoresizingMaskIntoConstraints="NO" id="IXM-Pe-eHZ">
-                                <rect key="frame" x="208" y="63" width="192" height="95"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloud 1" translatesAutoresizingMaskIntoConstraints="NO" id="IXM-Pe-eHZ">
+                                <rect key="frame" x="220" y="113" width="150" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="RRa-jR-JJs"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.64313725490196072" green="0.87058823529411766" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
@@ -109,11 +110,14 @@
                             <constraint firstItem="Qka-SC-0xz" firstAttribute="top" secondItem="Oq2-Ga-ovb" secondAttribute="bottom" constant="23" id="785-sT-UIJ"/>
                             <constraint firstItem="y7u-CL-anC" firstAttribute="top" secondItem="i9J-yk-0C9" secondAttribute="bottom" constant="79" id="9c0-20-Nqt"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Qka-SC-0xz" secondAttribute="trailing" constant="224" id="Dos-FQ-7xM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="yRj-7X-TYk" secondAttribute="trailing" constant="183" id="HT7-mK-sD1"/>
+                            <constraint firstItem="yRj-7X-TYk" firstAttribute="leading" secondItem="DpQ-fy-LYb" secondAttribute="leadingMargin" constant="34" id="Ibl-sO-uXU"/>
                             <constraint firstAttribute="trailingMargin" secondItem="10d-MR-a5L" secondAttribute="trailing" constant="183" id="Jej-N0-Bdq"/>
                             <constraint firstItem="8je-nZ-Ka6" firstAttribute="leading" secondItem="DpQ-fy-LYb" secondAttribute="leadingMargin" constant="34" id="LB7-iG-vBY"/>
                             <constraint firstItem="CID-RD-Rq3" firstAttribute="top" secondItem="8je-nZ-Ka6" secondAttribute="bottom" constant="96.5" id="Lbe-Jq-bR5"/>
                             <constraint firstItem="l9m-D6-bmm" firstAttribute="top" secondItem="Oq2-Ga-ovb" secondAttribute="bottom" id="M8P-HX-jps"/>
                             <constraint firstItem="8je-nZ-Ka6" firstAttribute="centerY" secondItem="DpQ-fy-LYb" secondAttribute="centerY" id="MBu-OE-Q7n"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="IXM-Pe-eHZ" secondAttribute="trailing" constant="24" id="OZI-Iz-3VI"/>
                             <constraint firstItem="i9J-yk-0C9" firstAttribute="top" secondItem="8je-nZ-Ka6" secondAttribute="bottom" constant="120.5" id="V80-bE-9OL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="vus-QA-xuI" secondAttribute="trailing" constant="24" id="Ye0-93-WBS"/>
                             <constraint firstItem="6f4-5k-2c9" firstAttribute="top" secondItem="Oq2-Ga-ovb" secondAttribute="bottom" constant="142" id="aXc-Ng-bKt"/>
@@ -122,14 +126,17 @@
                             <constraint firstAttribute="trailingMargin" secondItem="l9m-D6-bmm" secondAttribute="trailing" constant="117" id="g0x-ea-ot0"/>
                             <constraint firstItem="CID-RD-Rq3" firstAttribute="leading" secondItem="DpQ-fy-LYb" secondAttribute="leadingMargin" constant="224" id="hD4-fk-zvB"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Dco-ia-l5F" secondAttribute="trailing" constant="81" id="hX1-eY-Z7Z"/>
+                            <constraint firstItem="IXM-Pe-eHZ" firstAttribute="leading" secondItem="DpQ-fy-LYb" secondAttribute="leadingMargin" constant="200" id="iO4-P9-dj6"/>
                             <constraint firstAttribute="leadingMargin" secondItem="Qka-SC-0xz" secondAttribute="leading" id="ihp-Ra-aYf"/>
                             <constraint firstItem="8je-nZ-Ka6" firstAttribute="centerX" secondItem="DpQ-fy-LYb" secondAttribute="centerX" id="jRc-vF-P5f"/>
                             <constraint firstItem="i9J-yk-0C9" firstAttribute="leading" secondItem="DpQ-fy-LYb" secondAttribute="leadingMargin" constant="161" id="kPv-CB-5EO"/>
+                            <constraint firstItem="IXM-Pe-eHZ" firstAttribute="top" secondItem="Oq2-Ga-ovb" secondAttribute="bottom" constant="93" id="lVy-3f-eZq"/>
                             <constraint firstItem="jBQ-Lb-wsa" firstAttribute="top" secondItem="Oq2-Ga-ovb" secondAttribute="bottom" constant="8" id="nj3-yi-lZA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="CID-RD-Rq3" secondAttribute="trailing" constant="74" id="rn7-JD-epq"/>
                             <constraint firstItem="Dco-ia-l5F" firstAttribute="top" secondItem="Oq2-Ga-ovb" secondAttribute="bottom" constant="93" id="s4p-pa-YBP"/>
                             <constraint firstItem="vus-QA-xuI" firstAttribute="top" secondItem="Oq2-Ga-ovb" secondAttribute="bottom" constant="161" id="sZa-U2-0YQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="i9J-yk-0C9" secondAttribute="trailing" constant="119" id="tlQ-WZ-uu8"/>
+                            <constraint firstItem="yRj-7X-TYk" firstAttribute="top" secondItem="Oq2-Ga-ovb" secondAttribute="bottom" constant="190" id="vzp-fH-aU5"/>
                             <constraint firstItem="10d-MR-a5L" firstAttribute="leading" secondItem="DpQ-fy-LYb" secondAttribute="leadingMargin" constant="74" id="x0n-KM-rNM"/>
                             <constraint firstAttribute="leadingMargin" secondItem="jBQ-Lb-wsa" secondAttribute="leading" id="xj7-JW-I0r"/>
                             <constraint firstItem="10d-MR-a5L" firstAttribute="top" secondItem="8je-nZ-Ka6" secondAttribute="bottom" constant="165.5" id="yAZ-j7-Yz8"/>
@@ -141,10 +148,12 @@
                         <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="firstCloud" destination="yRj-7X-TYk" id="lCD-L7-VOz"/>
                         <outlet property="firstStar" destination="6f4-5k-2c9" id="hN1-NP-d9k"/>
                         <outlet property="firstZ" destination="10d-MR-a5L" id="zzC-jT-lW3"/>
                         <outlet property="fourthStar" destination="vus-QA-xuI" id="fEF-4Q-a5N"/>
                         <outlet property="moon" destination="Qka-SC-0xz" id="kkG-9G-YG2"/>
+                        <outlet property="secondCloud" destination="IXM-Pe-eHZ" id="3wI-gQ-z6v"/>
                         <outlet property="secondStar" destination="l9m-D6-bmm" id="i1H-FH-R4h"/>
                         <outlet property="secondZ" destination="i9J-yk-0C9" id="FIR-N3-WTg"/>
                         <outlet property="sleepButton" destination="8je-nZ-Ka6" id="QCA-2j-W5Q"/>

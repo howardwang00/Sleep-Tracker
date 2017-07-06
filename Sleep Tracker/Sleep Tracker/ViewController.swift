@@ -20,6 +20,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var thirdStar: UIImageView!
     @IBOutlet weak var fourthStar: UIImageView!
     @IBOutlet weak var sun: UIImageView!
+    @IBOutlet weak var firstCloud: UIImageView!
+    @IBOutlet weak var secondCloud: UIImageView!
     
     var sleeping: Bool = false
     //var currentNight: Night?
@@ -47,6 +49,10 @@ class ViewController: UIViewController {
             self.thirdStar.alpha = 0
             self.fourthStar.alpha = 0
             
+            self.sun.alpha = 1
+            self.firstCloud.alpha = 1
+            self.secondCloud.alpha = 1
+            
         } else {
             self.sleepButton.backgroundColor = UIColor(hex: "333333")
             self.view.backgroundColor = UIColor(hex: "191919")
@@ -62,6 +68,10 @@ class ViewController: UIViewController {
             self.secondStar.alpha = 1
             self.thirdStar.alpha = 1
             self.fourthStar.alpha = 1
+            
+            self.sun.alpha = 0
+            self.firstCloud.alpha = 0
+            self.secondCloud.alpha = 0
             
         }
     }
@@ -95,6 +105,8 @@ class ViewController: UIViewController {
                 self.fourthStar.alpha = 1
                 
                 self.sun.alpha = 0
+                self.firstCloud.alpha = 0
+                self.secondCloud.alpha = 0
             
             }) { _ in
                 UIButton.animate(withDuration: 2, delay: 0.25, options: [.autoreverse, .repeat],animations: {
@@ -123,6 +135,8 @@ class ViewController: UIViewController {
                     self.fourthStar.alpha -= 1
                 })
             }
+            firstCloud.layer.removeAllAnimations()
+            secondCloud.layer.removeAllAnimations()
 
             //currentNight.sleepTime = NSDate()
 
@@ -146,7 +160,15 @@ class ViewController: UIViewController {
                 self.fourthStar.alpha = 0
                     
                 self.sun.alpha = 1
+                self.firstCloud.alpha = 1
+                self.secondCloud.alpha = 1
 
+            })
+            UIButton.animate(withDuration: 1, delay: 0.25, options: [.autoreverse, .repeat],animations: {
+                self.firstCloud.frame.origin.x += 20
+            })
+            UIButton.animate(withDuration: 2, delay: 0.25, options: [.autoreverse, .repeat],animations: {
+                self.secondCloud.frame.origin.x -= 10
             })
             firstZ.layer.removeAllAnimations()
             secondZ.layer.removeAllAnimations()
