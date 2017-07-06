@@ -84,7 +84,8 @@ class ViewController: UIViewController {
         UserDefaults.standard.set(!UserDefaults.standard.bool(forKey: Constants.UserDefaults.sleeping), forKey: Constants.UserDefaults.sleeping)
         if UserDefaults.standard.bool(forKey: Constants.UserDefaults.sleeping) {
             //animate to dark
-            tabBarItem.image = UIImage(named: "sun-icon")
+            
+            tabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "moon icon1-1"), tag: 0)
             
             UIButton.animate(withDuration: 2, animations: {
                 self.sleepButton.backgroundColor = UIColor(hex: "333333")
@@ -140,6 +141,9 @@ class ViewController: UIViewController {
 
         } else {
             //animate to light
+            
+            tabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "sun icon-1"), tag: 0)
+            
             UIButton.animate(withDuration: 2, animations:
                 {
                 self.sleepButton.backgroundColor = UIColor(hex: "97F9F9")
