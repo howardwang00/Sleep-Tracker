@@ -31,18 +31,20 @@ class ViewController: UIViewController {
             self.view.backgroundColor = UIColor(hex: "A4DEF9")
             self.sleepButton.setTitleColor(UIColor(hex: "000000"), for: UIControlState.normal)
             
-            self.firstZ.textColor = UIColor(hex: "A4DEF9")
-            self.secondZ.textColor = UIColor(hex: "A4DEF9")
-            self.thirdZ.textColor = UIColor(hex: "A4DEF9")
+            self.firstZ.alpha = 0
+            self.secondZ.alpha = 0
+            self.thirdZ.alpha = 0
+            
         } else {
             self.sleepButton.backgroundColor = UIColor(hex: "333333")
             self.view.backgroundColor = UIColor(hex: "191919")
             self.sleepButton.setTitleColor(UIColor(hex: "FF8000"), for: UIControlState.normal)
             self.sleepButton.setTitle("Wake Up:", for: UIControlState.normal)
 
-            self.firstZ.textColor = UIColor.white
-            self.secondZ.textColor = UIColor.white
-            self.thirdZ.textColor = UIColor.white
+            self.firstZ.alpha = 1
+            self.secondZ.alpha = 1
+            self.thirdZ.alpha = 1
+            
         }
     }
     
@@ -62,19 +64,24 @@ class ViewController: UIViewController {
                 self.sleepButton.setTitleColor(UIColor(hex: "FF8000"), for: UIControlState.normal)
                 self.sleepButton.setTitle("Wake Up", for: UIControlState.normal)
                 
-                UIView.transition(with: self.firstZ, duration: 0.3, options: .transitionCrossDissolve, animations: { self.firstZ.textColor = UIColor.white }, completion: nil)
-                UIView.transition(with: self.secondZ, duration: 0.3, options: .transitionCrossDissolve, animations: { self.secondZ.textColor = UIColor.white }, completion: nil)
-                UIView.transition(with: self.thirdZ, duration: 0.3, options: .transitionCrossDissolve, animations: { self.thirdZ.textColor = UIColor.white }, completion: nil)
+                self.firstZ.alpha = 1
+                self.secondZ.alpha = 1
+                self.thirdZ.alpha = 1
             
             }) { _ in
                 UIButton.animate(withDuration: 2, delay: 0.25, options: [.autoreverse, .repeat],animations: {
                     self.firstZ.frame.origin.y -= 20
+                })
+                UIButton.animate(withDuration: 1.5, delay: 0.25, options: [.autoreverse, .repeat],animations: {
                     self.secondZ.frame.origin.y += 15
-                    self.thirdZ.frame.origin.y += 10
+                })
+                UIButton.animate(withDuration: 1, delay: 0.25, options: [.autoreverse, .repeat],animations: {
+                    self.thirdZ.frame.origin.y -= 10
                 })
             }
-        
+
             //currentNight.sleepTime = NSDate()
+
         } else {
             //animate to light
             UIButton.animate(withDuration: 2, animations:
@@ -84,16 +91,23 @@ class ViewController: UIViewController {
                 self.sleepButton.setTitleColor(UIColor(hex: "000000"), for: UIControlState.normal)
                 self.sleepButton.setTitle("Go To Sleep", for: UIControlState.normal)
                     
-                    UIView.transition(with: self.firstZ, duration: 0.3, options: .transitionCrossDissolve, animations: { self.firstZ.textColor = UIColor(hex: "A4DEF9") }, completion: nil)
-                    UIView.transition(with: self.secondZ, duration: 0.3, options: .transitionCrossDissolve, animations: { self.secondZ.textColor = UIColor(hex: "A4DEF9") }, completion: nil)
-                    UIView.transition(with: self.thirdZ, duration: 0.3, options: .transitionCrossDissolve, animations: { self.thirdZ.textColor = UIColor(hex: "A4DEF9") }, completion: nil)
+                self.firstZ.alpha = 0
+                self.secondZ.alpha = 0
+                self.thirdZ.alpha = 0
+
             })
             firstZ.layer.removeAllAnimations()
             secondZ.layer.removeAllAnimations()
             thirdZ.layer.removeAllAnimations()
+
+            firstZ.frame.origin.y = 529
+            secondZ.frame.origin.y = 476
+            thirdZ.frame.origin.y = 441
             
+
             //currentNight.wakeTime = NSDate()
             //currentNight.duration = currentNight.wakeTime!.timeIntervalSinceReferenceDate - currentNight.sleepTime!.timeIntervalSinceReferenceDate
+
         }
     }
 
