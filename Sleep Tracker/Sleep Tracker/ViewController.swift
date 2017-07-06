@@ -27,7 +27,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        currentNight = CoreDataHelper.returnNight()
         
         // Do any additional setup after loading the view, typically from a nib.
         sleepButton.layer.cornerRadius = 12
@@ -83,6 +82,10 @@ class ViewController: UIViewController {
     @IBAction func sleepButtonPressed(_ sender: UIButton) {
         UserDefaults.standard.set(!UserDefaults.standard.bool(forKey: Constants.UserDefaults.sleeping), forKey: Constants.UserDefaults.sleeping)
         if UserDefaults.standard.bool(forKey: Constants.UserDefaults.sleeping) {
+            currentNight = CoreDataHelper.returnNight()
+            currentNight!.sleepTime = NSDate()
+            CoreDataHelper.saveCoreData()
+            
             //animate to dark
             
             tabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "moon icon1-1"), tag: 0)
@@ -137,8 +140,6 @@ class ViewController: UIViewController {
             firstCloud.layer.removeAllAnimations()
             secondCloud.layer.removeAllAnimations()
 
-            //currentNight.sleepTime = NSDate()
-
         } else {
             //animate to light
             
@@ -186,8 +187,11 @@ class ViewController: UIViewController {
             thirdZ.frame.origin.y = 441
             
 
-            //currentNight.wakeTime = NSDate()
-            //currentNight.duration = currentNight.wakeTime!.timeIntervalSinceReferenceDate - currentNight.sleepTime!.timeIntervalSinceReferenceDate
+            currentNight!.wakeTime = NSDate()
+            let timeDifference = currentNight!.wakeTime!.timeIntervalSinceReferenceDate - currentNight!.sleepTime!.timeIntervalSinceReferenceDate
+            currentNight!.duration = CoreDataHelper.roundNightDuration(duration: timeDifference / 60.0) //Conversion from seconds to minutes (change to hours for official)
+            CoreDataHelper.saveCoreData()
+            print("Duration: \(currentNight!.duration)")
 
         }
     }

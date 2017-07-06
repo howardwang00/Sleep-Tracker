@@ -44,6 +44,10 @@ class CoreDataHelper {
         }
         return nights
     }
+    
+    static func roundNightDuration(duration: Double) -> Double {
+        return (duration * 10).rounded() / 10
+    }
 }
 
 

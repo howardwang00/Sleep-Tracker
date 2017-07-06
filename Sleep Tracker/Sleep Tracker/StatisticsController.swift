@@ -24,7 +24,7 @@ class StatisticsController: UIViewController {
 //        for night in nights {
 //             hoursSlept.append(night.duration)
 //        }
-        let hoursSlept:[Double] = [3.0, 10.0, 5.0, 3.0, 9.0, 10.0, 4.0]
+        let hoursSlept: [Double] = [3.0, 10.0, 5.0, 3.0, 9.0, 10.0, 4.0]
         setChart(values: hoursSlept)
     }
     func setChart(values: [Double]) {
