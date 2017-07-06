@@ -13,6 +13,7 @@
         <scene sceneID="YcC-Uw-2tB">
             <objects>
                 <viewController id="vSp-C1-3US" customClass="StatisticsController" sceneMemberID="viewController">
+                <viewController id="vSp-C1-3US" customClass="StatisticsController" customModule="Sleep_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="h8z-hB-NxY"/>
                         <viewControllerLayoutGuide type="bottom" id="nkF-2Q-ZBS"/>
@@ -20,10 +21,34 @@
                     <view key="view" contentMode="scaleToFill" id="iDR-HK-vfo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ddq-Kg-2rB" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="20" y="80" width="335" height="488"/>
+                                <color key="backgroundColor" red="0.4039215686" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hours Slept " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x0e-mu-6Ki">
+                                <rect key="frame" x="20" y="40" width="335" height="22.5"/>
+                                <fontDescription key="fontDescription" name="EuphemiaUCAS-Bold" family="Euphemia UCAS" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="x0e-mu-6Ki" firstAttribute="top" secondItem="h8z-hB-NxY" secondAttribute="bottom" constant="50" id="2Yk-fl-THS"/>
+                            <constraint firstAttribute="trailing" secondItem="x0e-mu-6Ki" secondAttribute="trailing" constant="20" id="XQZ-h0-jak"/>
+                            <constraint firstItem="nkF-2Q-ZBS" firstAttribute="top" secondItem="ddq-Kg-2rB" secondAttribute="bottom" constant="50" id="XTS-Ub-Zij"/>
+                            <constraint firstItem="ddq-Kg-2rB" firstAttribute="top" secondItem="h8z-hB-NxY" secondAttribute="bottom" constant="60" id="crB-Nf-5pl"/>
+                            <constraint firstItem="ddq-Kg-2rB" firstAttribute="leading" secondItem="iDR-HK-vfo" secondAttribute="leading" constant="20" id="fuK-zY-59W"/>
+                            <constraint firstItem="x0e-mu-6Ki" firstAttribute="leading" secondItem="iDR-HK-vfo" secondAttribute="leading" constant="20" id="ht2-hv-0v5"/>
+                            <constraint firstItem="x0e-mu-6Ki" firstAttribute="top" secondItem="h8z-hB-NxY" secondAttribute="bottom" constant="20" id="pGe-Xw-Qq0"/>
+                            <constraint firstAttribute="trailing" secondItem="ddq-Kg-2rB" secondAttribute="trailing" constant="20" id="qPG-lY-UZ9"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="u3a-uY-DDn"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="barChartView" destination="ddq-Kg-2rB" id="Ofv-lx-6OA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Km-vj-6Ow" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
