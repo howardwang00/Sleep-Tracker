@@ -144,9 +144,7 @@
                             <constraint firstItem="y7u-CL-anC" firstAttribute="top" secondItem="10d-MR-a5L" secondAttribute="bottom" constant="8" id="ymS-gq-1Cc"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="moon icon1-2" id="mcv-P8-ID8">
-                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Home" image="moon icon1-2" id="mcv-P8-ID8"/>
                     <connections>
                         <outlet property="firstCloud" destination="yRj-7X-TYk" id="lCD-L7-VOz"/>
                         <outlet property="firstStar" destination="6f4-5k-2c9" id="hN1-NP-d9k"/>
@@ -198,7 +196,7 @@
     <resources>
         <image name="cloud 1" width="100" height="57"/>
         <image name="crescent-shape" width="213" height="160"/>
-        <image name="moon icon1-2" width="50" height="50"/>
+        <image name="moon icon1-2" width="35" height="35"/>
         <image name="sun" width="727" height="729"/>
         <image name="whiteStar2" width="100" height="98"/>
     </resources>

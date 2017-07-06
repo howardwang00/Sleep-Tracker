@@ -86,7 +86,8 @@ class ViewController: UIViewController {
         sleeping = !sleeping
         if (sleeping == true) {
             //animate to dark
-            tabBarItem.image = UIImage(named: "sun-icon")
+            
+            tabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "moon icon1-1"), tag: 0)
             
             UIButton.animate(withDuration: 2, animations: {
                 self.sleepButton.backgroundColor = UIColor(hex: "333333")
@@ -142,6 +143,9 @@ class ViewController: UIViewController {
 
         } else {
             //animate to light
+            
+            tabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "sun icon-1"), tag: 0)
+            
             UIButton.animate(withDuration: 2, animations:
                 {
                 self.sleepButton.backgroundColor = UIColor(hex: "97F9F9")
