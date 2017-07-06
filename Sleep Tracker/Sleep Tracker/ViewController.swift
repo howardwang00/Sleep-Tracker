@@ -23,10 +23,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var firstCloud: UIImageView!
     @IBOutlet weak var secondCloud: UIImageView!
     
-    var currentNight: Night?
+    var nights = [Night]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("View Did Load")
+        print("Sleeping: \(UserDefaults.standard.bool(forKey: Constants.UserDefaults.sleeping))")
+        
+        nights = CoreDataHelper.retrieveNights()
         
         // Do any additional setup after loading the view, typically from a nib.
         sleepButton.layer.cornerRadius = 12
@@ -82,12 +87,16 @@ class ViewController: UIViewController {
     }
     
     @IBAction func sleepButtonPressed(_ sender: UIButton) {
+        print("Sleep Button Pressed")
         
         UserDefaults.standard.set(!UserDefaults.standard.bool(forKey: Constants.UserDefaults.sleeping), forKey: Constants.UserDefaults.sleeping)
         
         if UserDefaults.standard.bool(forKey: Constants.UserDefaults.sleeping) {
-            currentNight = CoreDataHelper.createNight()
-            currentNight!.sleepTime = NSDate()
+            if nights.count >= 7 {
+                nights.remove(at: 0)
+            }
+            nights.append(CoreDataHelper.createNight())
+            nights[nights.count - 1].sleepTime = Date() as NSDate
             CoreDataHelper.saveCoreData()
             
             //animate to dark
@@ -190,13 +199,13 @@ class ViewController: UIViewController {
             secondZ.frame.origin.y = 476
             thirdZ.frame.origin.y = 441
             
-            guard let currentNight = currentNight else { return }
-            currentNight.wakeTime = NSDate()
-            let timeDifference = currentNight.wakeTime!.timeIntervalSinceReferenceDate - currentNight.sleepTime!.timeIntervalSinceReferenceDate
-            currentNight.duration = CoreDataHelper.roundNightDuration(duration: timeDifference / 60.0) //Conversion from seconds to minutes (change to hours for official)
+            let night = nights[nights.count - 1]
+            night.wakeTime = Date() as NSDate
+            let timeDifference = night.wakeTime!.timeIntervalSinceReferenceDate - night.sleepTime!.timeIntervalSinceReferenceDate
+            night.duration = CoreDataHelper.roundNightDuration(duration: timeDifference / 60.0) //Conversion from seconds to minutes (change to hours for official)
             
             CoreDataHelper.saveCoreData()
-            print("Duration: \(currentNight.duration)")
+            print("Duration: \(night.duration)")
 
         }
     }
@@ -204,10 +213,18 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if let night = currentNight {
-            
-        }
+        print("View Will Appear")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("View Will Disappear")
     }
 
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        print("View Did Disappear")
+    }
+    
 }
 

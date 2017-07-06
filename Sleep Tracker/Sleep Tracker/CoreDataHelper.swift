@@ -20,6 +20,8 @@ class CoreDataHelper {
     static func createNight() -> Night {
         return NSEntityDescription.insertNewObject(forEntityName: "Night", into: managedContext) as! Night
     }
+    
+    
     //is this automatically called when you close the app?
     static func saveCoreData() {
         do {
