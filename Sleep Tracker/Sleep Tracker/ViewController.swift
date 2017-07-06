@@ -23,18 +23,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var firstCloud: UIImageView!
     @IBOutlet weak var secondCloud: UIImageView!
     
-    var sleeping: Bool = false
-    //var currentNight: Night?
+    var currentNight: Night?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //currentNight = CoreDataHelper.returnNight()
-        //sleeping = Sleeping.sleeping
+        currentNight = CoreDataHelper.returnNight()
         
         // Do any additional setup after loading the view, typically from a nib.
         sleepButton.layer.cornerRadius = 12
         
-        if (sleeping == false) {
+        if !UserDefaults.standard.bool(forKey: Constants.UserDefaults.sleeping) {
             self.sleepButton.backgroundColor = UIColor(hex: "97F9F9")
             self.view.backgroundColor = UIColor(hex: "A4DEF9")
             self.sleepButton.setTitleColor(UIColor(hex: "000000"), for: UIControlState.normal)
@@ -83,8 +81,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func sleepButtonPressed(_ sender: UIButton) {
-        sleeping = !sleeping
-        if (sleeping == true) {
+        UserDefaults.standard.set(!UserDefaults.standard.bool(forKey: Constants.UserDefaults.sleeping), forKey: Constants.UserDefaults.sleeping)
+        if UserDefaults.standard.bool(forKey: Constants.UserDefaults.sleeping) {
             //animate to dark
             
             tabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "moon icon1-1"), tag: 0)

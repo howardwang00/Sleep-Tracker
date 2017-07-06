@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        //just in case
+        //To make sure that UserDefaults - sleeping is either true or false
         if !UserDefaults.standard.bool(forKey: Constants.UserDefaults.sleeping) {
             UserDefaults.standard.set(false, forKey: Constants.UserDefaults.sleeping)
         }
