@@ -44,7 +44,6 @@
                             <constraint firstAttribute="trailing" secondItem="ddq-Kg-2rB" secondAttribute="trailing" constant="20" id="qPG-lY-UZ9"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Statistics" selectedImage="1499375466_bar_chart" id="u3a-uY-DDn"/>
                     <tabBarItem key="tabBarItem" title="Statistics" image="1499375466_bar_chart" id="u3a-uY-DDn"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
