@@ -83,11 +83,7 @@
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crescent-shape" translatesAutoresizingMaskIntoConstraints="NO" id="Qka-SC-0xz">
-                                <rect key="frame" x="20" y="43" width="150" height="115"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="1zk-OC-NpY"/>
-                                    <constraint firstAttribute="height" constant="115" id="8fR-74-J0D"/>
-                                </constraints>
+                                <rect key="frame" x="20" y="43" width="150" height="118"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sun" translatesAutoresizingMaskIntoConstraints="NO" id="jBQ-Lb-wsa">
                                 <rect key="frame" x="20" y="28" width="150" height="150"/>
@@ -107,6 +103,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.64313725490196072" green="0.87058823529411766" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="y7u-CL-anC" firstAttribute="top" secondItem="Qka-SC-0xz" secondAttribute="bottom" constant="526" id="3Sl-Mg-9Tw"/>
                             <constraint firstItem="Qka-SC-0xz" firstAttribute="top" secondItem="Oq2-Ga-ovb" secondAttribute="bottom" constant="23" id="785-sT-UIJ"/>
                             <constraint firstItem="y7u-CL-anC" firstAttribute="top" secondItem="i9J-yk-0C9" secondAttribute="bottom" constant="79" id="9c0-20-Nqt"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Qka-SC-0xz" secondAttribute="trailing" constant="224" id="Dos-FQ-7xM"/>

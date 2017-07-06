@@ -51,6 +51,7 @@ class ViewController: UIViewController {
             self.secondCloud.alpha = 1
             
         } else {
+            
             self.sleepButton.backgroundColor = UIColor(hex: "333333")
             self.view.backgroundColor = UIColor(hex: "191919")
             self.sleepButton.setTitleColor(UIColor(hex: "FF8000"), for: UIControlState.normal)
@@ -70,6 +71,7 @@ class ViewController: UIViewController {
             self.firstCloud.alpha = 0
             self.secondCloud.alpha = 0
             
+            
         }
     }
     
@@ -80,7 +82,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func sleepButtonPressed(_ sender: UIButton) {
+        
         UserDefaults.standard.set(!UserDefaults.standard.bool(forKey: Constants.UserDefaults.sleeping), forKey: Constants.UserDefaults.sleeping)
+        
         if UserDefaults.standard.bool(forKey: Constants.UserDefaults.sleeping) {
             currentNight = CoreDataHelper.returnNight()
             currentNight!.sleepTime = NSDate()
@@ -186,8 +190,8 @@ class ViewController: UIViewController {
             secondZ.frame.origin.y = 476
             thirdZ.frame.origin.y = 441
             
-
             currentNight!.wakeTime = NSDate()
+            
             let timeDifference = currentNight!.wakeTime!.timeIntervalSinceReferenceDate - currentNight!.sleepTime!.timeIntervalSinceReferenceDate
             currentNight!.duration = CoreDataHelper.roundNightDuration(duration: timeDifference / 60.0) //Conversion from seconds to minutes (change to hours for official)
             CoreDataHelper.saveCoreData()
