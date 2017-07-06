@@ -16,14 +16,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var thirdZ: UILabel!
     
     var sleeping: Bool = false
-    var currentNight = Night()
+    //var currentNight: Night?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //currentNight = CoreDataHelper.returnNight()
+        //sleeping = Sleeping.sleeping
+        
         // Do any additional setup after loading the view, typically from a nib.
         sleepButton.layer.cornerRadius = 12
-        
-        //Get sleeping from CoreData
         
         if (sleeping == false) {
             self.sleepButton.backgroundColor = UIColor(hex: "97F9F9")
@@ -78,8 +79,9 @@ class ViewController: UIViewController {
                     self.thirdZ.frame.origin.y -= 10
                 })
             }
-        
-          currentNight.sleepTime = NSDate()
+
+            //currentNight.sleepTime = NSDate()
+
         } else {
             //animate to light
             UIButton.animate(withDuration: 2, animations:
@@ -97,13 +99,15 @@ class ViewController: UIViewController {
             firstZ.layer.removeAllAnimations()
             secondZ.layer.removeAllAnimations()
             thirdZ.layer.removeAllAnimations()
-            
+
             firstZ.frame.origin.y = 529
             secondZ.frame.origin.y = 476
             thirdZ.frame.origin.y = 441
             
-            currentNight.wakeTime = NSDate()
-            currentNight.duration = currentNight.wakeTime!.timeIntervalSinceReferenceDate - currentNight.sleepTime!.timeIntervalSinceReferenceDate
+
+            //currentNight.wakeTime = NSDate()
+            //currentNight.duration = currentNight.wakeTime!.timeIntervalSinceReferenceDate - currentNight.sleepTime!.timeIntervalSinceReferenceDate
+
         }
     }
 
