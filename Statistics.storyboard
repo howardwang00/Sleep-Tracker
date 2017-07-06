@@ -9,10 +9,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item 2-->
+        <!--Statistics-->
         <scene sceneID="YcC-Uw-2tB">
             <objects>
-                <viewController id="vSp-C1-3US" customClass="StatisticsController" sceneMemberID="viewController">
                 <viewController id="vSp-C1-3US" customClass="StatisticsController" customModule="Sleep_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="h8z-hB-NxY"/>
@@ -21,6 +20,7 @@
                     <view key="view" contentMode="scaleToFill" id="iDR-HK-vfo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ddq-Kg-2rB" customClass="BarChartView" customModule="Charts">
                                 <rect key="frame" x="20" y="80" width="335" height="488"/>
                                 <color key="backgroundColor" red="0.4039215686" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -44,7 +44,7 @@
                             <constraint firstAttribute="trailing" secondItem="ddq-Kg-2rB" secondAttribute="trailing" constant="20" id="qPG-lY-UZ9"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="u3a-uY-DDn"/>
+                    <tabBarItem key="tabBarItem" title="Statistics" selectedImage="1499375466_bar_chart" id="u3a-uY-DDn"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="barChartView" destination="ddq-Kg-2rB" id="Ofv-lx-6OA"/>
@@ -55,4 +55,7 @@
             <point key="canvasLocation" x="1257" y="341"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="1499375466_bar_chart" width="48" height="48"/>
+    </resources>
 </document>
