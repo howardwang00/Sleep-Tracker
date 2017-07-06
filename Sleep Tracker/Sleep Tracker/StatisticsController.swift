@@ -24,7 +24,7 @@ class StatisticsController: UIViewController {
 //        for night in nights {
 //             hoursSlept.append(night.duration)
 //        }
-        let hoursSlept:[Double] = [3.0, 10.0, 5.0]
+        let hoursSlept:[Double] = [3.0, 10.0, 5.0, 3.0, 9.0, 10.0, 4.0]
         setChart(values: hoursSlept)
     }
     func setChart(values: [Double]) {
@@ -41,5 +41,12 @@ class StatisticsController: UIViewController {
         let chartData = BarChartData(dataSet: chartDataSet)
         barChartView.data = chartData
         
+        //color and ui
+        barChartView.chartDescription?.text = ""
+        chartDataSet.colors = ChartColorTemplates.vordiplom()
+        barChartView.xAxis.labelPosition = .bottom
+        barChartView.animate(xAxisDuration: 1.5, yAxisDuration: 1.5)
+        let limitLine = ChartLimitLine(limit: 8.0, label: "Target")
+        barChartView.rightAxis.addLimitLine(limitLine)
     }
 }

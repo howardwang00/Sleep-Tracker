@@ -45,6 +45,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Statistics" selectedImage="1499375466_bar_chart" id="u3a-uY-DDn"/>
+                    <tabBarItem key="tabBarItem" title="Statistics" image="1499375466_bar_chart" id="u3a-uY-DDn"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="barChartView" destination="ddq-Kg-2rB" id="Ofv-lx-6OA"/>
@@ -57,5 +58,6 @@
     </scenes>
     <resources>
         <image name="1499375466_bar_chart" width="48" height="48"/>
+        <image name="1499375466_bar_chart" width="24" height="24"/>
     </resources>
 </document>
