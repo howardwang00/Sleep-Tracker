@@ -168,7 +168,7 @@ class ViewController: UIViewController {
 
             })
             UIButton.animate(withDuration: 1, delay: 0.25, options: [.autoreverse, .repeat],animations: {
-                self.firstCloud.frame.origin.x += 20
+                self.firstCloud.frame.origin.x += 15
             })
             UIButton.animate(withDuration: 2, delay: 0.25, options: [.autoreverse, .repeat],animations: {
                 self.secondCloud.frame.origin.x -= 10
