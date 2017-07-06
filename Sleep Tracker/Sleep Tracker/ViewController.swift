@@ -82,7 +82,7 @@ class ViewController: UIViewController {
     @IBAction func sleepButtonPressed(_ sender: UIButton) {
         UserDefaults.standard.set(!UserDefaults.standard.bool(forKey: Constants.UserDefaults.sleeping), forKey: Constants.UserDefaults.sleeping)
         if UserDefaults.standard.bool(forKey: Constants.UserDefaults.sleeping) {
-            currentNight = CoreDataHelper.returnNight()
+            currentNight = CoreDataHelper.createNight()
             currentNight!.sleepTime = NSDate()
             CoreDataHelper.saveCoreData()
             
@@ -186,16 +186,24 @@ class ViewController: UIViewController {
             secondZ.frame.origin.y = 476
             thirdZ.frame.origin.y = 441
             
-
-            currentNight!.wakeTime = NSDate()
-            let timeDifference = currentNight!.wakeTime!.timeIntervalSinceReferenceDate - currentNight!.sleepTime!.timeIntervalSinceReferenceDate
-            currentNight!.duration = CoreDataHelper.roundNightDuration(duration: timeDifference / 60.0) //Conversion from seconds to minutes (change to hours for official)
+            
+            guard let currentNight = currentNight else { return }
+            currentNight.wakeTime = NSDate()
+            let timeDifference = currentNight.wakeTime!.timeIntervalSinceReferenceDate - currentNight.sleepTime!.timeIntervalSinceReferenceDate
+            currentNight.duration = CoreDataHelper.roundNightDuration(duration: timeDifference / 60.0) //Conversion from seconds to minutes (change to hours for official)
             CoreDataHelper.saveCoreData()
-            print("Duration: \(currentNight!.duration)")
+            print("Duration: \(currentNight.duration)")
 
         }
     }
 
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let night = currentNight {
+            
+        }
+    }
 
 }
 

@@ -17,7 +17,7 @@ class CoreDataHelper {
     static let managedContext = persistentContainer.viewContext
     //static methods will go here
     
-    static func returnNight() -> Night {
+    static func createNight() -> Night {
         return NSEntityDescription.insertNewObject(forEntityName: "Night", into: managedContext) as! Night
     }
     //is this automatically called when you close the app?
