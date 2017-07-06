@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var secondStar: UIImageView!
     @IBOutlet weak var thirdStar: UIImageView!
     @IBOutlet weak var fourthStar: UIImageView!
+    @IBOutlet weak var sun: UIImageView!
     
     var sleeping: Bool = false
     //var currentNight: Night?
@@ -90,6 +91,8 @@ class ViewController: UIViewController {
                 self.secondStar.alpha = 1
                 self.thirdStar.alpha = 1
                 self.fourthStar.alpha = 1
+                
+                self.sun.alpha = 0
             
             }) { _ in
                 UIButton.animate(withDuration: 2, delay: 0.25, options: [.autoreverse, .repeat],animations: {
@@ -139,6 +142,8 @@ class ViewController: UIViewController {
                 self.secondStar.alpha = 0
                 self.thirdStar.alpha = 0
                 self.fourthStar.alpha = 0
+                    
+                self.sun.alpha = 1
 
             })
             firstZ.layer.removeAllAnimations()
