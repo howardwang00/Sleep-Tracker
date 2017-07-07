@@ -15,9 +15,12 @@ class StatisticsController: UIViewController {
     @IBOutlet weak var barChartView: BarChartView!
     var nights = [Night]()
     
+    var labels = ["Mon", "Tues", "Wed", "Thurs", "Fri", "Sat", "Sun"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        updateLabels()
         
         nights = CoreDataHelper.retrieveNights()
         var hoursSlept: [Double] = []
@@ -36,8 +39,8 @@ class StatisticsController: UIViewController {
 
         barChartView.reloadInputViews()
         print(generateChartValues())
-
     }
+    
     func setChart(values: [Double]) {
         //To be changed.
         guard values.count > 0 else { return }
@@ -64,9 +67,11 @@ class StatisticsController: UIViewController {
         barChartView.animate(xAxisDuration: 1.5, yAxisDuration: 1.5)
         let limitLine = ChartLimitLine(limit: 8.0, label: "Goal")
         barChartView.rightAxis.addLimitLine(limitLine)
+        
+        barChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: labels)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         barChartView.resetZoom()
         barChartView.notifyDataSetChanged()
         barChartView.reloadInputViews()
@@ -98,5 +103,37 @@ class StatisticsController: UIViewController {
             dataEntries.append(dataEntry)
         }
         return (dataEntries, xValues)
+    }
+    
+    func getDayOfWeek () -> String {
+        let today = NSDate()
+        let calendar = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)
+        let components = calendar!.components([.weekday], from: today as Date)
+        
+        switch components.weekday! {
+        case 1:
+            return "Sun"
+        case 2:
+            return "Mon"
+        case 3:
+            return "Tues"
+        case 4:
+            return "Wed"
+        case 5:
+            return "Thurs"
+        case 6:
+            return "Fri"
+        case 7:
+            return "Sat"
+        default:
+            return "Invalid"
+    }
+    }
+    
+    func updateLabels () {
+        let weekday: String = getDayOfWeek()
+        while (labels[labels.count - 1] != weekday) {
+            labels.insert(labels.remove(at: labels.count - 1), at: 0)
+        }
     }
 }

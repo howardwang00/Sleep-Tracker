@@ -216,44 +216,9 @@ class ViewController: UIViewController {
     }
 
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("View Will Appear")
-        
-        if !UserDefaults.standard.bool(forKey: Constants.UserDefaults.sleeping) {
-            UIButton.animate(withDuration: 2, delay: 0.25, options: [.autoreverse, .repeat],animations: {
-                self.firstZ.frame.origin.y -= 20
-            })
-            UIButton.animate(withDuration: 1.5, delay: 0.25, options: [.autoreverse, .repeat],animations: {
-                self.secondZ.frame.origin.y += 15
-            })
-            UIButton.animate(withDuration: 1, delay: 0.25, options: [.autoreverse, .repeat],animations: {
-                self.thirdZ.frame.origin.y -= 10
-            })
-            UIButton.animate(withDuration: 1, delay: 0.25, options: [.autoreverse, .repeat],animations: {
-                self.firstStar.frame.origin.x -= 10
-                self.firstStar.alpha -= 1
-            })
-            UIButton.animate(withDuration: 2, delay: 0.25, options: [.autoreverse, .repeat],animations: {
-                self.secondStar.frame.origin.x += 10
-                self.secondStar.alpha -= 1
-            })
-            UIButton.animate(withDuration: 3, delay: 0.25, options: [.autoreverse, .repeat],animations: {
-                self.thirdStar.frame.origin.x -= 20
-                self.thirdStar.alpha -= 1
-            })
-            UIButton.animate(withDuration: 1.5, delay: 0.25, options: [.autoreverse, .repeat],animations: {
-                self.fourthStar.frame.origin.x += 20
-                self.fourthStar.alpha -= 1
-            })
-        } else {
-            UIView.animate(withDuration: 1, delay: 0.25, options: [.autoreverse, .repeat],animations: {
-                self.firstCloud.frame.origin.x += 15
-            })
-            UIView.animate(withDuration: 2, delay: 0.25, options: [.autoreverse, .repeat],animations: {
-                self.secondCloud.frame.origin.x -= 10
-            })
-        }
+        print("View Did Appear")
     }
     
     override func viewWillDisappear(_ animated: Bool) {
