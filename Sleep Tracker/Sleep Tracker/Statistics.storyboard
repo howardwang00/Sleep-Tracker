@@ -47,6 +47,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="barChartView" destination="ddq-Kg-2rB" id="Ofv-lx-6OA"/>
+                        <outlet property="minutesSleptLabel" destination="x0e-mu-6Ki" id="xS6-pd-xSH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Km-vj-6Ow" userLabel="First Responder" sceneMemberID="firstResponder"/>

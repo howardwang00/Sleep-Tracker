@@ -12,6 +12,7 @@ import Charts
 
 class StatisticsController: UIViewController {
     
+    @IBOutlet weak var minutesSleptLabel: UILabel!
     @IBOutlet weak var barChartView: BarChartView!
     var nights = [Night]()
     
@@ -59,16 +60,27 @@ class StatisticsController: UIViewController {
         if !UserDefaults.standard.bool(forKey: Constants.UserDefaults.sleeping) {
             chartDataSet.colors = ChartColorTemplates.vordiplom()
             barChartView.xAxis.labelTextColor = UIColor.black
+            barChartView.leftAxis.labelTextColor = UIColor.black
+            barChartView.rightAxis.labelTextColor = UIColor.black
+            self.view.backgroundColor = UIColor(hex: "A4DEF9")
+            barChartView.backgroundColor = UIColor.white
+            minutesSleptLabel.textColor = UIColor.black
+            
         } else {
             chartDataSet.colors = ChartColorTemplates.pastel()
-            barChartView.xAxis.labelTextColor = UIColor(hex: "B3B3B3")
+            barChartView.xAxis.labelTextColor = UIColor.white
+            barChartView.rightAxis.labelTextColor = UIColor.white
+            barChartView.leftAxis.labelTextColor = UIColor.white
+            self.view.backgroundColor = UIColor(hex: "191919")
+            barChartView.backgroundColor = UIColor(hex: "4C4C4C")
+            minutesSleptLabel.textColor = UIColor(hex: "FF8000")
         }
         
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        barChartView.resetZoom()
+        barChartView.pinchZoomEnabled = false
         barChartView.notifyDataSetChanged()
         barChartView.reloadInputViews()
         
