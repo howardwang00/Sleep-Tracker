@@ -139,24 +139,21 @@ class ViewController: UIViewController {
                     self.thirdZ.frame.origin.y -= 10
                 })
                 UIButton.animate(withDuration: 1, delay: 0.25, options: [.autoreverse, .repeat],animations: {
-                    self.firstStar.frame.origin.x -= 10
                     self.firstStar.alpha -= 1
                 })
                 UIButton.animate(withDuration: 2, delay: 0.25, options: [.autoreverse, .repeat],animations: {
-                    self.secondStar.frame.origin.x += 10
                     self.secondStar.alpha -= 1
                 })
                 UIButton.animate(withDuration: 3, delay: 0.25, options: [.autoreverse, .repeat],animations: {
-                    self.thirdStar.frame.origin.x -= 20
                     self.thirdStar.alpha -= 1
                 })
                 UIButton.animate(withDuration: 1.5, delay: 0.25, options: [.autoreverse, .repeat],animations: {
-                    self.fourthStar.frame.origin.x += 20
                     self.fourthStar.alpha -= 1
                 })
             }
             firstCloud.layer.removeAllAnimations()
             secondCloud.layer.removeAllAnimations()
+            sun.layer.removeAllAnimations()
 
         } else {
             //animate to light

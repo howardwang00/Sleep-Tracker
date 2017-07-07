@@ -107,6 +107,8 @@ class StatisticsController: UIViewController {
         
         barChartView.pinchZoomEnabled = false
         barChartView.doubleTapToZoomEnabled = false
+        barChartView.setScaleEnabled(false)
+        
         barChartView.notifyDataSetChanged()
         barChartView.reloadInputViews()
         
