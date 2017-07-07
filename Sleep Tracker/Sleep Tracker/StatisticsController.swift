@@ -55,7 +55,7 @@ class StatisticsController: UIViewController {
         barChartView.chartDescription?.text = ""
         barChartView.xAxis.drawGridLinesEnabled = false
         barChartView.xAxis.labelPosition = .bottom
-        barChartView.animate(xAxisDuration: 1.5, yAxisDuration: 1.5)
+        barChartView.animate(xAxisDuration: 0.5, yAxisDuration: 0.5)
         let limitLine = ChartLimitLine(limit: 480.0, label: "Goal")
         barChartView.rightAxis.addLimitLine(limitLine)
         
