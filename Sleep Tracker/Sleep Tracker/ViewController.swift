@@ -191,6 +191,10 @@ class ViewController: UIViewController {
             UIButton.animate(withDuration: 2, delay: 0.25, options: [.autoreverse, .repeat],animations: {
                 self.secondCloud.frame.origin.x -= 10
             })
+            UIButton.animate(withDuration: 1.5, delay: 0.25, options: [.autoreverse, .repeat],animations: {
+                self.sun.transform = CGAffineTransform(rotationAngle: 20)
+            })
+            
             firstZ.layer.removeAllAnimations()
             secondZ.layer.removeAllAnimations()
             thirdZ.layer.removeAllAnimations()
