@@ -47,6 +47,7 @@ class StatisticsController: UIViewController {
         barChartView.xAxis.labelPosition = .bottom
         barChartView.animate(xAxisDuration: 1.5, yAxisDuration: 1.5)
         let limitLine = ChartLimitLine(limit: 8.0, label: "Target")
+        let limitLine = ChartLimitLine(limit: 8.0, label: "Goal")
         barChartView.rightAxis.addLimitLine(limitLine)
     }
 }
