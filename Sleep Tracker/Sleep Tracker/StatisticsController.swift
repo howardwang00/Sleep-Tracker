@@ -12,6 +12,9 @@ import Charts
 
 class StatisticsController: UIViewController {
     
+    @IBOutlet weak var separateView: UIView!
+    @IBOutlet weak var helpButton: UIButton!
+    @IBOutlet weak var popupView: UIView!
     @IBOutlet weak var minutesSleptLabel: UILabel!
     @IBOutlet weak var barChartView: BarChartView!
     var nights = [Night]()
@@ -69,7 +72,10 @@ class StatisticsController: UIViewController {
             minutesSleptLabel.textColor = UIColor.black
             limitLine.lineColor = UIColor.red
             chartData.setValueTextColor(UIColor.black)
-            barChartView.legend.textColor = UIColor.black
+            barChartView.legend.entries = [LegendEntry()]
+            
+            helpButton.setTitleColor(UIColor.black, for: UIControlState.normal)
+            
         } else {
             chartDataSet.colors = ChartColorTemplates.pastel()
             barChartView.xAxis.labelTextColor = UIColor.white
@@ -80,15 +86,25 @@ class StatisticsController: UIViewController {
             minutesSleptLabel.textColor = UIColor(hex: "FF8000")
             limitLine.lineColor = UIColor(hex: "FF8000")
             chartData.setValueTextColor(UIColor.white)
-            barChartView.legend.textColor = UIColor.white
+            barChartView.legend.entries = [LegendEntry()]
+            
+            helpButton.setTitleColor(UIColor(hex: "FF8000"), for: UIControlState.normal)
+
+            
         }
         
-    
-        
-        
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        popupView.isHidden = true
+        popupView.layer.cornerRadius = 12
+        popupView.layer.borderColor = UIColor.lightGray.cgColor
+        popupView.layer.borderWidth = 2
+        popupView.backgroundColor = UIColor.white
+        
+        separateView.backgroundColor = UIColor.lightGray
+        
         barChartView.pinchZoomEnabled = false
         barChartView.doubleTapToZoomEnabled = false
         barChartView.notifyDataSetChanged()
@@ -161,4 +177,14 @@ class StatisticsController: UIViewController {
             labels.insert(labels.remove(at: labels.count - 1), at: 0)
         }
     }
+    @IBAction func helpButtonPressed(_ sender: UIButton) {
+        popupView.isHidden = false
+        
+    }
+    
+    @IBAction func okButton(_ sender: UIButton) {
+        popupView.isHidden = true
+    }
+    
+    
 }
