@@ -64,7 +64,7 @@ class ViewController: UIViewController {
             self.sleepButton.backgroundColor = UIColor(hex: "333333")
             self.view.backgroundColor = UIColor(hex: "191919")
             self.sleepButton.setTitleColor(UIColor(hex: "FF8000"), for: UIControlState.normal)
-            self.sleepButton.setTitle("Wake Up:", for: UIControlState.normal)
+            self.sleepButton.setTitle("Wake Up", for: UIControlState.normal)
 
             self.firstZ.alpha = 1
             self.secondZ.alpha = 1

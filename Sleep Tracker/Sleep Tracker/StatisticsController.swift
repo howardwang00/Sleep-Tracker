@@ -19,18 +19,12 @@ class StatisticsController: UIViewController {
     
     let today = Date()
     
+    var hoursSlept: [Double] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         updateLabels()
-        
-        nights = CoreDataHelper.retrieveNights()
-        var hoursSlept: [Double] = []
-        for night in nights {
-            //guard let duration = night.duration else { return }
-            hoursSlept.append(night.duration)
-        }
-        
 
         setChart(values: hoursSlept)
     }
@@ -54,7 +48,6 @@ class StatisticsController: UIViewController {
         
         //color and ui
         barChartView.chartDescription?.text = ""
-        chartDataSet.colors = ChartColorTemplates.vordiplom()
         barChartView.xAxis.drawGridLinesEnabled = false
         barChartView.xAxis.labelPosition = .bottom
         barChartView.animate(xAxisDuration: 1.5, yAxisDuration: 1.5)
@@ -62,12 +55,31 @@ class StatisticsController: UIViewController {
         barChartView.rightAxis.addLimitLine(limitLine)
         
         barChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: labels)
+        
+        if !UserDefaults.standard.bool(forKey: Constants.UserDefaults.sleeping) {
+            chartDataSet.colors = ChartColorTemplates.vordiplom()
+            barChartView.xAxis.labelTextColor = UIColor.black
+        } else {
+            chartDataSet.colors = ChartColorTemplates.pastel()
+            barChartView.xAxis.labelTextColor = UIColor(hex: "B3B3B3")
+        }
+        
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         barChartView.resetZoom()
         barChartView.notifyDataSetChanged()
         barChartView.reloadInputViews()
+        
+        nights = CoreDataHelper.retrieveNights()
+        
+        for night in nights {
+            //guard let duration = night.duration else { return }
+            hoursSlept.append(night.duration)
+        }
+        
+        setChart(values: hoursSlept)
     }
 
     func generateChartValues () -> (entries: [BarChartDataEntry], labels:[String]) {
