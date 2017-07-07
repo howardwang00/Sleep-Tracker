@@ -23,18 +23,20 @@ class ViewController: UIViewController {
     @IBOutlet weak var firstCloud: UIImageView!
     @IBOutlet weak var secondCloud: UIImageView!
     
-    var sleeping: Bool = false
-    //var currentNight: Night?
+    var nights = [Night]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //currentNight = CoreDataHelper.returnNight()
-        //sleeping = Sleeping.sleeping
+        
+        print("View Did Load")
+        print("Sleeping: \(UserDefaults.standard.bool(forKey: Constants.UserDefaults.sleeping))")
+        
+        nights = CoreDataHelper.retrieveNights()
         
         // Do any additional setup after loading the view, typically from a nib.
         sleepButton.layer.cornerRadius = 12
         
-        if (sleeping == false) {
+        if !UserDefaults.standard.bool(forKey: Constants.UserDefaults.sleeping) {
             self.sleepButton.backgroundColor = UIColor(hex: "97F9F9")
             self.view.backgroundColor = UIColor(hex: "A4DEF9")
             self.sleepButton.setTitleColor(UIColor(hex: "000000"), for: UIControlState.normal)
@@ -54,6 +56,7 @@ class ViewController: UIViewController {
             self.secondCloud.alpha = 1
             
         } else {
+            
             self.sleepButton.backgroundColor = UIColor(hex: "333333")
             self.view.backgroundColor = UIColor(hex: "191919")
             self.sleepButton.setTitleColor(UIColor(hex: "FF8000"), for: UIControlState.normal)
@@ -73,6 +76,7 @@ class ViewController: UIViewController {
             self.firstCloud.alpha = 0
             self.secondCloud.alpha = 0
             
+            
         }
     }
     
@@ -83,10 +87,21 @@ class ViewController: UIViewController {
     }
     
     @IBAction func sleepButtonPressed(_ sender: UIButton) {
-        sleeping = !sleeping
-        if (sleeping == true) {
+        print("Sleep Button Pressed")
+        
+        UserDefaults.standard.set(!UserDefaults.standard.bool(forKey: Constants.UserDefaults.sleeping), forKey: Constants.UserDefaults.sleeping)
+        
+        if UserDefaults.standard.bool(forKey: Constants.UserDefaults.sleeping) {
+            if nights.count >= 7 {
+                nights.remove(at: 0)
+            }
+            nights.append(CoreDataHelper.createNight())
+            nights[nights.count - 1].sleepTime = Date() as NSDate
+            CoreDataHelper.saveCoreData()
+            
             //animate to dark
-            tabBarItem.image = UIImage(named: "sun-icon")
+            
+            tabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "moon icon1-1"), tag: 0)
             
             UIButton.animate(withDuration: 2, animations: {
                 self.sleepButton.backgroundColor = UIColor(hex: "333333")
@@ -138,10 +153,11 @@ class ViewController: UIViewController {
             firstCloud.layer.removeAllAnimations()
             secondCloud.layer.removeAllAnimations()
 
-            //currentNight.sleepTime = NSDate()
-
         } else {
             //animate to light
+            
+            tabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "sun icon-1"), tag: 0)
+            
             UIButton.animate(withDuration: 2, animations:
                 {
                 self.sleepButton.backgroundColor = UIColor(hex: "97F9F9")
@@ -165,7 +181,7 @@ class ViewController: UIViewController {
 
             })
             UIButton.animate(withDuration: 1, delay: 0.25, options: [.autoreverse, .repeat],animations: {
-                self.firstCloud.frame.origin.x += 20
+                self.firstCloud.frame.origin.x += 15
             })
             UIButton.animate(withDuration: 2, delay: 0.25, options: [.autoreverse, .repeat],animations: {
                 self.secondCloud.frame.origin.x -= 10
@@ -183,13 +199,32 @@ class ViewController: UIViewController {
             secondZ.frame.origin.y = 476
             thirdZ.frame.origin.y = 441
             
-
-            //currentNight.wakeTime = NSDate()
-            //currentNight.duration = currentNight.wakeTime!.timeIntervalSinceReferenceDate - currentNight.sleepTime!.timeIntervalSinceReferenceDate
+            let night = nights[nights.count - 1]
+            night.wakeTime = Date() as NSDate
+            let timeDifference = night.wakeTime!.timeIntervalSinceReferenceDate - night.sleepTime!.timeIntervalSinceReferenceDate
+            night.duration = CoreDataHelper.roundNightDuration(duration: timeDifference / 60.0) //Conversion from seconds to minutes (change to hours for official)
+            
+            CoreDataHelper.saveCoreData()
+            print("Duration: \(night.duration)")
 
         }
     }
 
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("View Will Appear")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("View Will Disappear")
+    }
 
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        print("View Did Disappear")
+    }
+    
 }
 
