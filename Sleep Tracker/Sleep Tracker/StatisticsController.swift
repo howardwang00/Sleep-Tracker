@@ -27,18 +27,10 @@ class StatisticsController: UIViewController {
         }
         let today = Date()
 
-        nights[0].duration = 5.0
-        nights[0].sleepTime = NSDate(timeInterval:  -60*60*24*2, since: today)
-        nights[1].duration = 2.3
-        nights[1].sleepTime = NSDate(timeInterval:  -60*60*24*2, since: today)
-
         setChart(values: hoursSlept)
-        print(generateChartValues())
     }
     func setChart(values: [Double]) {
         //To be changed.
-        guard values.count > 0 else { return }
-        let myRange = Array(1...values.count)
 //        guard values.count > 0 else { return }
 //        let myRange = Array(1...values.count)
 //        
@@ -49,7 +41,7 @@ class StatisticsController: UIViewController {
 //        }
         let generatedValues = generateChartValues()
         
-        let chartDataSet = BarChartDataSet(values: generatedValues.entries, label: "Hours Slept")
+        let chartDataSet = BarChartDataSet(values: generatedValues.entries, label: "Minutes Slept")
         let chartData = BarChartData(dataSet: chartDataSet)
         barChartView.data = chartData
        
