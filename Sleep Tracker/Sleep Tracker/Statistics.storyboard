@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -33,7 +34,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="x0e-mu-6Ki" firstAttribute="top" secondItem="h8z-hB-NxY" secondAttribute="bottom" constant="50" id="2Yk-fl-THS"/>
                             <constraint firstAttribute="trailing" secondItem="x0e-mu-6Ki" secondAttribute="trailing" constant="20" id="XQZ-h0-jak"/>
                             <constraint firstItem="nkF-2Q-ZBS" firstAttribute="top" secondItem="ddq-Kg-2rB" secondAttribute="bottom" constant="50" id="XTS-Ub-Zij"/>
                             <constraint firstItem="ddq-Kg-2rB" firstAttribute="top" secondItem="h8z-hB-NxY" secondAttribute="bottom" constant="60" id="crB-Nf-5pl"/>
@@ -55,6 +55,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="1499375466_bar_chart" width="48" height="48"/>
+        <image name="1499375466_bar_chart" width="24" height="24"/>
     </resources>
 </document>

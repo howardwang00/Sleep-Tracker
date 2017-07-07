@@ -37,6 +37,8 @@ class ViewController: UIViewController {
         sleepButton.layer.cornerRadius = 12
         
         if !UserDefaults.standard.bool(forKey: Constants.UserDefaults.sleeping) {
+            tabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "sun icon-1"), tag: 0)
+            
             self.sleepButton.backgroundColor = UIColor(hex: "97F9F9")
             self.view.backgroundColor = UIColor(hex: "A4DEF9")
             self.sleepButton.setTitleColor(UIColor(hex: "000000"), for: UIControlState.normal)
@@ -55,7 +57,9 @@ class ViewController: UIViewController {
             self.firstCloud.alpha = 1
             self.secondCloud.alpha = 1
             
+            
         } else {
+            tabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "moon icon1-1"), tag: 0)
             
             self.sleepButton.backgroundColor = UIColor(hex: "333333")
             self.view.backgroundColor = UIColor(hex: "191919")
@@ -75,6 +79,7 @@ class ViewController: UIViewController {
             self.sun.alpha = 0
             self.firstCloud.alpha = 0
             self.secondCloud.alpha = 0
+
             
             
         }
@@ -214,6 +219,41 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("View Will Appear")
+        
+        if !UserDefaults.standard.bool(forKey: Constants.UserDefaults.sleeping) {
+            UIButton.animate(withDuration: 2, delay: 0.25, options: [.autoreverse, .repeat],animations: {
+                self.firstZ.frame.origin.y -= 20
+            })
+            UIButton.animate(withDuration: 1.5, delay: 0.25, options: [.autoreverse, .repeat],animations: {
+                self.secondZ.frame.origin.y += 15
+            })
+            UIButton.animate(withDuration: 1, delay: 0.25, options: [.autoreverse, .repeat],animations: {
+                self.thirdZ.frame.origin.y -= 10
+            })
+            UIButton.animate(withDuration: 1, delay: 0.25, options: [.autoreverse, .repeat],animations: {
+                self.firstStar.frame.origin.x -= 10
+                self.firstStar.alpha -= 1
+            })
+            UIButton.animate(withDuration: 2, delay: 0.25, options: [.autoreverse, .repeat],animations: {
+                self.secondStar.frame.origin.x += 10
+                self.secondStar.alpha -= 1
+            })
+            UIButton.animate(withDuration: 3, delay: 0.25, options: [.autoreverse, .repeat],animations: {
+                self.thirdStar.frame.origin.x -= 20
+                self.thirdStar.alpha -= 1
+            })
+            UIButton.animate(withDuration: 1.5, delay: 0.25, options: [.autoreverse, .repeat],animations: {
+                self.fourthStar.frame.origin.x += 20
+                self.fourthStar.alpha -= 1
+            })
+        } else {
+            UIView.animate(withDuration: 1, delay: 0.25, options: [.autoreverse, .repeat],animations: {
+                self.firstCloud.frame.origin.x += 15
+            })
+            UIView.animate(withDuration: 2, delay: 0.25, options: [.autoreverse, .repeat],animations: {
+                self.secondCloud.frame.origin.x -= 10
+            })
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {

@@ -26,6 +26,7 @@ class StatisticsController: UIViewController {
             hoursSlept.append(night.duration)
         }
         setChart(values: hoursSlept)
+        barChartView.reloadInputViews()
     }
     func setChart(values: [Double]) {
         //To be changed.
@@ -49,5 +50,11 @@ class StatisticsController: UIViewController {
         barChartView.animate(xAxisDuration: 1.5, yAxisDuration: 1.5)
         let limitLine = ChartLimitLine(limit: 8.0, label: "Target")
         barChartView.rightAxis.addLimitLine(limitLine)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        barChartView.resetZoom()
+        barChartView.notifyDataSetChanged()
+        barChartView.reloadInputViews()
     }
 }
