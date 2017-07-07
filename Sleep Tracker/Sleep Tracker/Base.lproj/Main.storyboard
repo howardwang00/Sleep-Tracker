@@ -141,7 +141,7 @@
                             <constraint firstItem="y7u-CL-anC" firstAttribute="top" secondItem="10d-MR-a5L" secondAttribute="bottom" constant="8" id="ymS-gq-1Cc"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="1" title="Home" image="sun icon-1" id="mcv-P8-ID8"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="Home" image="Sun-icon-1" id="mcv-P8-ID8"/>
                     <connections>
                         <outlet property="firstCloud" destination="yRj-7X-TYk" id="lCD-L7-VOz"/>
                         <outlet property="firstStar" destination="6f4-5k-2c9" id="hN1-NP-d9k"/>
@@ -191,10 +191,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Sun-icon-1" width="24" height="24"/>
         <image name="cloud 1" width="100" height="57"/>
         <image name="crescent-shape" width="213" height="160"/>
         <image name="sun" width="727" height="729"/>
-        <image name="sun icon-1" width="35" height="35"/>
         <image name="whiteStar2" width="100" height="98"/>
     </resources>
 </document>
