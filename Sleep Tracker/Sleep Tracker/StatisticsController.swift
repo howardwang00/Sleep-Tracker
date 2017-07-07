@@ -44,6 +44,7 @@ class StatisticsController: UIViewController {
         
         let chartDataSet = BarChartDataSet(values: generatedValues.entries, label: "Minutes Slept")
         let chartData = BarChartData(dataSet: chartDataSet)
+        chartData.setDrawValues(false)
         barChartView.data = chartData
        
         
@@ -59,6 +60,7 @@ class StatisticsController: UIViewController {
         
         if !UserDefaults.standard.bool(forKey: Constants.UserDefaults.sleeping) {
             chartDataSet.colors = ChartColorTemplates.vordiplom()
+          
             barChartView.xAxis.labelTextColor = UIColor.black
             barChartView.leftAxis.labelTextColor = UIColor.black
             barChartView.rightAxis.labelTextColor = UIColor.black
@@ -80,6 +82,8 @@ class StatisticsController: UIViewController {
             chartData.setValueTextColor(UIColor.white)
             barChartView.legend.textColor = UIColor.white
         }
+        
+    
         
         
     }
