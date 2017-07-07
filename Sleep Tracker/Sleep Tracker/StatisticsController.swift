@@ -17,6 +17,8 @@ class StatisticsController: UIViewController {
     
     var labels = ["Mon", "Tues", "Wed", "Thurs", "Fri", "Sat", "Sun"]
     
+    let today = Date()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,7 +30,7 @@ class StatisticsController: UIViewController {
             //guard let duration = night.duration else { return }
             hoursSlept.append(night.duration)
         }
-        let today = Date()
+        
 
         setChart(values: hoursSlept)
     }
@@ -69,9 +71,8 @@ class StatisticsController: UIViewController {
 
     func generateChartValues () -> (entries: [BarChartDataEntry], labels:[String]) {
         let weekdayLabel = ["Sun","Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"]
-        var today = Date()
-        var weekAgo = Date(timeInterval: -60*60*24*6,since: today)
-        var calendar = Calendar(identifier: Calendar.Identifier.gregorian)
+        let weekAgo = Date(timeInterval: -60*60*24*6,since: today)
+        let calendar = Calendar(identifier: Calendar.Identifier.gregorian)
         let todayWeekDay = calendar.component(.weekday, from: today)
         var xValues: [String] = []
         for x in todayWeekDay..<todayWeekDay+7 {
@@ -81,7 +82,7 @@ class StatisticsController: UIViewController {
         for i in (1...7) {arr.append([Double]())}
         for i in (0..<nights.count).reversed() {
             print(nights[i].duration);
-            let currentNight = nights[i].sleepTime as! Date
+            let currentNight = nights[i].sleepTime! as Date
             if (currentNight > weekAgo) {
                 let day = calendar.component(.weekday, from: currentNight)
                 arr[day + (6-todayWeekDay) % 7].insert(nights[i].duration, at: 0)
@@ -96,7 +97,6 @@ class StatisticsController: UIViewController {
     }
     
     func getDayOfWeek () -> String {
-        let today = NSDate()
         let calendar = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)
         let components = calendar!.components([.weekday], from: today as Date)
         
