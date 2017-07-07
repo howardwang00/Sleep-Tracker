@@ -65,7 +65,9 @@ class StatisticsController: UIViewController {
             self.view.backgroundColor = UIColor(hex: "A4DEF9")
             barChartView.backgroundColor = UIColor.white
             minutesSleptLabel.textColor = UIColor.black
-            
+            limitLine.lineColor = UIColor.red
+            chartData.setValueTextColor(UIColor.black)
+            barChartView.legend.textColor = UIColor.black
         } else {
             chartDataSet.colors = ChartColorTemplates.pastel()
             barChartView.xAxis.labelTextColor = UIColor.white
@@ -74,6 +76,9 @@ class StatisticsController: UIViewController {
             self.view.backgroundColor = UIColor(hex: "191919")
             barChartView.backgroundColor = UIColor(hex: "4C4C4C")
             minutesSleptLabel.textColor = UIColor(hex: "FF8000")
+            limitLine.lineColor = UIColor(hex: "FF8000")
+            chartData.setValueTextColor(UIColor.white)
+            barChartView.legend.textColor = UIColor.white
         }
         
         
@@ -81,6 +86,7 @@ class StatisticsController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         barChartView.pinchZoomEnabled = false
+        barChartView.doubleTapToZoomEnabled = false
         barChartView.notifyDataSetChanged()
         barChartView.reloadInputViews()
         
