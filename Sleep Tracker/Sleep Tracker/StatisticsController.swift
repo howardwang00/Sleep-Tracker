@@ -28,6 +28,7 @@ class StatisticsController: UIViewController {
         let today = Date()
 
         setChart(values: hoursSlept)
+
     }
     func setChart(values: [Double]) {
         //To be changed.
@@ -54,6 +55,13 @@ class StatisticsController: UIViewController {
         let limitLine = ChartLimitLine(limit: 8.0, label: "Goal")
         barChartView.rightAxis.addLimitLine(limitLine)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        barChartView.resetZoom()
+        barChartView.notifyDataSetChanged()
+        barChartView.reloadInputViews()
+    }
+
     func generateChartValues () -> (entries: [BarChartDataEntry], labels:[String]) {
         let weekdayLabel = ["Sun","Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"]
         var today = Date()
@@ -81,5 +89,4 @@ class StatisticsController: UIViewController {
         }
         return (dataEntries, xValues)
     }
-    
 }
